@@ -1,0 +1,20 @@
+package order;
+
+import java.io.Serializable;
+
+
+public class OrderedItem implements Serializable{
+	Product product=null;
+	int quantity;
+    public int getQuantity(){
+        return this.quantity;
+    }
+	public OrderedItem(Product product,int quantity) {
+		this.product=product;
+		this.quantity=quantity;
+	}
+    // @Override
+    public String toString(){
+        return new String(this.product.toString()+"Quantity = "+this.quantity);
+    }
+}

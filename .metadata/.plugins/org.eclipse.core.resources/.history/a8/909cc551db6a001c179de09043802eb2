@@ -1,0 +1,62 @@
+package driverProduct;
+
+import java.io.IOException;
+import customer.Customer;
+import database.DataBase;
+import date.Date;
+import order.Order;
+import order.OrderedItem;
+import product.Food;
+import product.Fruit;
+import product.Product;
+import product.Vegetable;
+
+public class DriverProduct{
+	public void drive() throws ClassNotFoundException, IOException{
+		Product []products= {
+				new Vegetable("Potato","potato"),
+				new Food("Pizza","pizza"),
+				new Fruit("Mango","mango")
+		};
+        OrderedItem []items= {
+        		new OrderedItem(products[0],3),
+        		new OrderedItem(products[1],98),
+        		new OrderedItem(products[2],5)
+        };
+        Order []orders= {
+        		new Order(),
+        		new Order()
+        }
+        orders[0].addOrderedItem(items[0]);   
+        orders[0].setDate(new Date(30,12,2021));
+        orders[1].addOrderedItem(items[1]);
+        dt=;
+        Order order2=new Order();
+        order2.setDate(new Date(25,12,2021));
+        order2.addOrderedItem(o3);
+        // System.out.println(order1);
+        // Order orderDuplicate=Order.getOrder(order2.getId());
+        
+        // System.out.println(orderDuplicate);
+        Customer cust1=new Customer(" om ashish soni");
+        cust1.addOrder(order1);
+        Customer custDuplicate=Customer.getCustomer(cust1.getId());
+        custDuplicate.addOrder(order2);
+        cust1.sortOrders();
+//        System.out.println(custDuplicate);
+        DataBase DB=new DataBase();
+        DB.saveCustomer(cust1);
+        Customer cust2=new Customer(" OAS");
+        cust2.addOrder(order2);
+        DB.saveCustomer(cust2);
+        Customer loadedCustomer = null;
+        try {
+        	loadedCustomer = DB.loadCustomer(cust2.getId());
+        }catch(Exception e) {
+        	
+        }
+        
+        System.out.print(loadedCustomer);
+		System.out.println("Total number of products : "+Product.getNumberOfProducts());
+	}
+}
