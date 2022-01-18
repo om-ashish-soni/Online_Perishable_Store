@@ -1,2 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="address.Address"/>
+    <fullyQualifiedTypeName name="order.OrderComparator"/>
+    <fullyQualifiedTypeName name="product.Vegetable"/>
+    <fullyQualifiedTypeName name="product.Food"/>
+    <fullyQualifiedTypeName name="product.Fruit"/>
+    <fullyQualifiedTypeName name="date.Date"/>
+    <fullyQualifiedTypeName name="customer.Customer"/>
+    <fullyQualifiedTypeName name="java.io.IOException"/>
+    <fullyQualifiedTypeName name="database.DataBase"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="order.Order"/>
+    <fullyQualifiedTypeName name="order.OrderedItem"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="product.Product"/>
+</qualifiedTypeNameHistroy>

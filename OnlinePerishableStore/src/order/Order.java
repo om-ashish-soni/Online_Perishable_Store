@@ -6,6 +6,7 @@ import java.util.HashMap;
 import order.Order;
 import date.Date;
 import customer.Customer;
+import database.DataBase;
 import order.OrderedItem;
 
 public class Order implements Serializable{
@@ -14,6 +15,7 @@ public class Order implements Serializable{
 	static int numberOfOrders=0;
 	int id;
 	Date date;
+	String orderItemTable;
 	ArrayList<OrderedItem> itemList=new ArrayList<OrderedItem>();
 	Customer cust=null;
 	double totalAmount=0.0;
@@ -21,7 +23,12 @@ public class Order implements Serializable{
 	
 	// constructor ... 
 	public Order() {
-		generateId();
+//		generateId();
+//		DataBase db=new DataBase();
+//		this.setId(db.saveOrder());
+	}
+	public ArrayList<OrderedItem> getItemList(){
+		return this.itemList;
 	}
 	// private methods ... 
 	private void generateId() {
@@ -38,11 +45,17 @@ public class Order implements Serializable{
     public int getId(){
         return this.id;
     }
+    public void setId(int id) {
+    	this.id=id;
+    }
     public Date getDate(){
         return this.date;
     }
     public void setDate(Date date){
         this.date=date;
+    }
+    public void setOrderItemTable(String orderItemTable) {
+    	this.orderItemTable=orderItemTable;
     }
 	public static Order getOrder(int id) {
 		if(orderOf.containsKey(id)) {

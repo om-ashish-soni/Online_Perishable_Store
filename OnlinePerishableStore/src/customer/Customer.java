@@ -7,10 +7,12 @@ import java.util.HashMap;
 import order.Order;
 import address.Address;
 import order.OrderComparator;
+import database.DataBase;
 
 public class Customer implements Serializable{
 	// declaration ... 
 	String name;
+	String orderTable;
 	int id;
 	Address billingAddress=null;
 	ArrayList<Order> orders=new ArrayList<Order>();
@@ -22,10 +24,14 @@ public class Customer implements Serializable{
 	}
 	
 	// constructors .... 
-
+	private void setOrderTable() {
+		this.orderTable=((Integer)this.getId()).toString()+"__"+this.name+"__orders";
+	}
 	public Customer(String name) {
-		setId();
 		this.name=name;
+		DataBase db=new DataBase();
+		this.setId(db.saveCustomer(name));
+		this.setOrderTable();
 		this.billingAddress=null;
 		customerOf.put(this.id,this);
 	}
@@ -43,10 +49,16 @@ public class Customer implements Serializable{
 		this.id=customerCount;
 		
 	}
+	private void setId(int id) {
+		this.id=id;
+	}
     public int getId(){
         return this.id;
     }
     public void addOrder(Order ord){
+        
+        DataBase db=new DataBase();
+        ord.setId(db.addOrder(ord,orderTable));
         this.orders.add(ord);
     }
     public void setBillingAddress(Address billingAddress){

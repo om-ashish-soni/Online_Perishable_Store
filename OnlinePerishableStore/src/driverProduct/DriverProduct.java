@@ -52,10 +52,10 @@ public class DriverProduct{
         // serializing object ... 
         DB.saveCustomer(customers[0]);
         DB.saveCustomer(customers[1]);
-        
+        System.out.print(customers[0]);
         // reading serialized object ... 
         Customer loadedCustomer = null;
-    	loadedCustomer = DB.loadCustomer(customers[0].getId());
-        System.out.print(loadedCustomer);
+//    	loadedCustomer = DB.loadCustomer(customers[0].getId());
+//        System.out.print(loadedCustomer);
 	}
 }
